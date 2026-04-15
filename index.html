@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Spot Check</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #111;
+    color: white;
+    margin: 0;
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #00ffcc;
+    font-size: 22px;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+}
+
+/* كل عنصر */
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 0;
+    background: #222;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+/* اسم المنتج */
+span {
+    font-size: 14px;
+    width: 60%;
+}
+
+/* الإدخال */
+input {
+    width: 80px;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* زر */
+button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: #ff4444;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button:active {
+    background: #cc0000;
+}
+
+/* تحسين للموبايل */
+@media (max-width: 500px) {
+    span {
+        font-size: 13px;
+    }
+
+    input {
+        width: 70px;
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>📦 Spot Check</h1>
+
+<div class="container" id="list"></div>
+
+<button onclick="resetAll()">🧹 تصفير الكل</button>
+
+<script>
+
+let items = [
+"khalta_pistachio",
+"khalta_hazelnut",
+"khalta_spanish",
+"djaj",
+"blk club",
+"mix cheese",
+"halloumi_large",
+"halloumi_small",
+"deli",
+"saniora_kashkawan",
+"zaatar_cheese",
+"turkey cheese",
+"sniora_labaneh",
+"zaatar_labaneh",
+"faterah_tomato",
+"faterah_zaatar",
+"karat_mafin",
+"biscotti",
+"brownie",
+"classic",
+"chocolate",
+"latte",
+"date cake",
+"banana chocolate",
+"water"
+];
+
+let container = document.getElementById("list");
+
+items.forEach(item => {
+    container.innerHTML += `
+        <div class="item">
+            <span>${item}</span>
+            <input type="number" min="0" value="0" inputmode="numeric">
+        </div>
+    `;
+});
+
+function resetAll() {
+    let inputs = document.querySelectorAll("input");
+    inputs.forEach(input => {
+        input.value = 0;
+    });
+}
+
+</script>
+
+</body>
+</html>
